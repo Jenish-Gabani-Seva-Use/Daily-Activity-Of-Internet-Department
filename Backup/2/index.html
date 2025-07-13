@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Operations Daily Activity Checklist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header fade-in">
+            <div class="gujarati-text">શ્રી હરિ</div>
+            <h1>Internet Department Daily Activity Checking Tasks</h1>
+                        <p>રાજી થયાનું પોતે કરાવી રાજી થાઓ છો કેવા કૃપાળુ...</p>
+
+        </div>
+        <!--
+        <div class="filters-section">
+            <h2><i class="fas fa-filter"></i> Filter Activities</h2>
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="person-filter">Filter by Person</label>
+                    <select id="person-filter" class="filter-select">
+                        <option value="">All Persons</option>
+                        <option value="Brijeshbhai's wife">Brijeshbhai's wife</option>
+                        <option value="Jayeshbhai's wife">Jayeshbhai's wife</option>
+                        <option value="Shyambhai">Shyambhai</option>
+                        <option value="Chetanbhai">Chetanbhai</option>
+                        <option value="Rajubhai">Rajubhai</option>
+                        <option value="Darshanbhai">Darshanbhai</option>
+                        <option value="Darshitbhai">Darshitbhai</option>
+                        <option value="Dharmikbhai">Dharmikbhai</option>
+                        <option value="Jemishbhai">Jemishbhai</option>
+                        <option value="Hemangbhai">Hemangbhai</option>
+                        <option value="Shubhambhai">Shubhambhai</option>
+                        <option value="Kathanbhai">Kathanbhai</option>
+                        <option value="Jayeshbhai">Jayeshbhai</option>
+                        <option value="Brijeshbhai">Brijeshbhai</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="platform-filter">Filter by Platform</label>
+                    <select id="platform-filter" class="filter-select">
+                        <option value="">All Platforms</option>
+                        <option value="YouTube">YouTube</option>
+                        <option value="WhatsApp">WhatsApp</option>
+                        <option value="Website">Website</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Zoom">Zoom</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="status-filter">Filter by Status</label>
+                    <select id="status-filter" class="filter-select">
+                        <option value="">All Statuses</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                        <option value="overdue">Overdue</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group" style="display: flex; align-items: flex-end;">
+                    <button id="reset-btn" class="reset-btn">
+                        <i class="fas fa-sync-alt"></i> Reset Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+    -->
+        
+        <div class="stats-container">
+         
+            
+            <div class="stat-card fade-in">
+                <i class="fas fa-tasks"></i>
+                <h3 id="total-tasks">0</h3>
+                <p>Total Tasks</p>
+            </div>
+               <div class="stat-card fade-in">
+                <i class="fas fa-exclamation-circle"></i>
+                <h3 id="overdue-tasks">0</h3>
+                <p>Overdue Tasks</p>
+            </div>
+            
+            <div class="stat-card fade-in">
+                <i class="fas fa-check-circle"></i>
+                <h3 id="completed-tasks">0</h3>
+                <p>Completed Today</p>
+            </div>
+            <div class="stat-card fade-in">
+                <i class="fas fa-clock"></i>
+                <h3 id="pending-tasks">0</h3>
+                <p>Pending Tasks</p>
+            </div>
+            
+            
+            <div class="stat-card fade-in">
+                <i class="fas fa-users"></i>
+                <h3 id="team-members">0</h3>
+                <p>Team Members</p>
+            </div>
+            
+            
+        </div>
+        
+        <div class="table-container fade-in">
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">No</th>
+                            <th style="width: 100px;">Time</th>
+                            <th style="width: 200px;">Task</th>
+                            <th style="width: 180px;">Person</th>
+                            <th style="width: 180px;">Platform</th>
+                            <th>What You Need To Check?</th>
+                            <th style="width: 280px;">Where You Inform?</th>
+                            <th style="width: 120px;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Task 1 -->
+                        <tr data-time="05:50">
+                            <td class="no-cell">1</td>
+                            <td class="time-cell">5:50 AM</td>
+                            <td class="task-cell">Mangala Aarti</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Brijeshbhai's wife</span>
+                                <span class="person-tag">Jayeshbhai's wife</span>
+                            </td>
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube (Swaminarayan Channel)
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Audio Sharu Hovo Joiye</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Call Mayur or Jenish. If they don’t answer, call J.K. Bhai directly.
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="1">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 2 -->
+                        <tr data-time="05:50">
+                            <td class="no-cell" rowspan="4">2</td>
+                            <td class="time-cell" rowspan="4">5:50 AM</td>
+                            <td class="task-cell" rowspan="4">Nirnay</td>
+                            <td class="person-cell" rowspan="4">
+                                <span class="person-tag">Brijeshbhai's wife</span>
+                                <span class="person-tag">Jayeshbhai's wife</span>
+                            </td>
+                            <td class="platform-cell" data-platform="WhatsApp">
+                                <div class="platform-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                WhatsApp
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Nirnay Image</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="2-1">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="05:50">
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube Post Page
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Nirnay Image</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="2-2">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="05:50">
+                            <td class="platform-cell" data-platform="Instagram">
+                                <div class="platform-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                Instagram
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Nirnay Image</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="2-3">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="05:50">
+                            <td class="platform-cell" data-platform="Facebook">
+                                <div class="platform-icon">
+                                    <i class="fab fa-facebook"></i>
+                                </div>
+                                Facebook
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Nirnay Image</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="2-4">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 3 -->
+                        <tr data-time="06:00">
+                            <td class="no-cell" rowspan="2">3</td>
+                            <td class="time-cell" rowspan="2">10 min after Mangala</td>
+                            <td class="task-cell" rowspan="2">Zoom & Youtube Checking</td>
+                            <td class="person-cell" rowspan="2">
+                                <span class="person-tag">Shyambhai</span>
+                                <span class="person-tag">Jayeshbhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="Zoom">
+                                <div class="platform-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                Zoom
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Audio-Video quality & mute/unmute permission</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Call Mayur or Jenish. If they don’t answer, call J.K. Bhai directly.
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="3-1">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="06:00">
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube (Swaminarayan Channel)
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Audio-Video Quality</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Call Mayur or Jenish. If they don’t answer, call J.K. Bhai directly.
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="3-2">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 4 -->
+                        <tr data-time="06:45">
+                            <td class="no-cell" rowspan="5">4</td>
+                            <td class="time-cell" rowspan="5">6:45 AM</td>
+                            <td class="task-cell" rowspan="5">Magla Darshan</td>
+                            <td class="person-cell" rowspan="5">
+                                <span class="person-tag">Chetanbhai</span>
+                                <span class="person-tag">Rajubhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="WhatsApp">
+                                <div class="platform-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                WhatsApp
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Magla Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="4-1">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="06:45">
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube Post (Swaminarayan Channel)
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Magla Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="4-2">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="06:45">
+                            <td class="platform-cell" data-platform="Website">
+                                <div class="platform-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                Website
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Magla Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="4-3">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="06:45">
+                            <td class="platform-cell" data-platform="Instagram">
+                                <div class="platform-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                Instagram
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Magla Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="4-4">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="06:45">
+                            <td class="platform-cell" data-platform="Facebook">
+                                <div class="platform-icon">
+                                    <i class="fab fa-facebook"></i>
+                                </div>
+                                Facebook
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Magla Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="4-5">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 5 -->
+                        <tr data-time="08:15">
+                            <td class="no-cell" rowspan="5">5</td>
+                            <td class="time-cell" rowspan="5">8:15 AM</td>
+                            <td class="task-cell" rowspan="5">Shangar Darshan</td>
+                            <td class="person-cell" rowspan="5">
+                                <span class="person-tag">Chetanbhai</span>
+                                <span class="person-tag">Rajubhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="WhatsApp">
+                                <div class="platform-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                WhatsApp
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Shangar Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="5-1">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="08:15">
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube Post (Swaminarayan Channel)
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Shangar Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="5-2">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="08:15">
+                            <td class="platform-cell" data-platform="Website">
+                                <div class="platform-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                Website
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Shangar Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="5-3">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="08:15">
+                            <td class="platform-cell" data-platform="Instagram">
+                                <div class="platform-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                Instagram
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Shangar Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="5-4">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="08:15">
+                            <td class="platform-cell" data-platform="Facebook">
+                                <div class="platform-icon">
+                                    <i class="fab fa-facebook"></i>
+                                </div>
+                                Facebook
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Shangar Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="5-5">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 6 -->
+                        <tr data-time="07:30">
+                            <td class="no-cell">6</td>
+                            <td class="time-cell">15 min after Morning Katha</td>
+                            <td class="task-cell">Upcoming Sandhya Aarti Event</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Shyambhai</span>
+                                <span class="person-tag">Jayeshbhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube (Swaminarayan Channel)
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Sandhya Aarti Upcoming Event Check</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="6">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 7 -->
+                        <tr data-time="12:30">
+                            <td class="no-cell" rowspan="6">7</td>
+                            <td class="time-cell" rowspan="6">12.30 PM</td>
+                            <td class="task-cell" rowspan="6">Tapu maharaj<br>Ghanshyam Maharaj</td>
+                            <td class="person-cell" rowspan="6">
+                                <span class="person-tag">Darshanbhai</span>
+                                <span class="person-tag">Darshitbhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube Videos (Swaminarayan Channel)
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Tapu Maharaj Status</li>
+                                    <li>Tapu Maharaj Clip (Above 1 min)</li>
+                                    <li>Shangar Darshan Ghanshyam Maharaj</li>
+                                    <li>Ghanshyam Maharaj Status</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="7-1">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="12:30">
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube Post (Swaminarayan Channel)
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Tapu Maharaj Photos</li>
+                                    <li>Mangla Darshan Ghanshyam Maharaj</li>
+                                    <li>Shangar Darshan Ghanshyam Maharaj</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="7-2">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="12:30">
+                            <td class="platform-cell" data-platform="Website">
+                                <div class="platform-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                Website
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>1 Tapu Maharaj Photo</li>
+                                    <li>1 Mangala Darshan</li>
+                                    <li>4 Shangar Darshan</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="7-3">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="12:30">
+                            <td class="platform-cell" data-platform="Instagram">
+                                <div class="platform-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                Instagram
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Nirnay</li>
+                                    <li>Mangala Darshan</li>
+                                    <li>Shangar Darshan</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="7-4">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="12:30">
+                            <td class="platform-cell" data-platform="Facebook">
+                                <div class="platform-icon">
+                                    <i class="fab fa-facebook"></i>
+                                </div>
+                                Facebook
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Nirnay</li>
+                                    <li>Shangar Darshan</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="7-5">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="12:30">
+                            <td class="platform-cell" data-platform="WhatsApp">
+                                <div class="platform-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                WhatsApp
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Nirnay</li>
+                                    <li>Mangala Darshan</li>
+                                    <li>Shangar Darshan</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="7-6">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 8 -->
+                        <tr data-time="16:00">
+                            <td class="no-cell">8</td>
+                            <td class="time-cell">4:00 PM</td>
+                            <td class="task-cell">Sandya Aarti Event</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Dharmikbhai</span>
+                                <span class="person-tag">Jemishbhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube (Swaminarayan Channel)
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Sandhya Aarti Event Public or not</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="8">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 9 -->
+                        <tr data-time="19:05">
+                            <td class="no-cell" rowspan="3">9</td>
+                            <td class="time-cell" rowspan="3">7:05 PM</td>
+                            <td class="task-cell" rowspan="3">Sandhya Aarti Audio Check<br>Katha<br>Katha Saar<br>Katha Audio</td>
+                            <td class="person-cell" rowspan="3">
+                                <span class="person-tag">Dharmikbhai</span>
+                                <span class="person-tag">Jemishbhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Daily Full Katha Video</li>
+                                    <li>Sandhya Aarti Live Event</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                If Aarti Related Problem then Call Directly To J.K.Bhai Otherwise Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="9-1">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="19:05">
+                            <td class="platform-cell" data-platform="WhatsApp">
+                                <div class="platform-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                WhatsApp
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Full Katha Ni Link</li>
+                                    <li>Audio Katha</li>
+                                    <li>Katha Sar No Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="9-2">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="19:05">
+                            <td class="platform-cell" data-platform="Website">
+                                <div class="platform-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                Website
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Audio Section Ma Audio Katha</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="9-3">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 10 -->
+                        <tr data-time="20:20">
+                            <td class="no-cell">10</td>
+                            <td class="time-cell">8:20 PM</td>
+                            <td class="task-cell">Orda chesta</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Hemangbhai</span>
+                                <span class="person-tag">Shubhambhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Live TV and Katha TV Orda Chesta On</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Call Mayur or Jenish. If they don’t answer, call J.K. Bhai directly.
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="10">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 11 -->
+                        <tr data-time="21:00">
+                            <td class="no-cell">11</td>
+                            <td class="time-cell">9:00 PM</td>
+                            <td class="task-cell">Delay Katha</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Jayeshbhai</span>
+                                <span class="person-tag">Kathanbhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Live TV and Katha TV Today Katha On</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Call Mayur or Jenish. If they don’t answer, call J.K. Bhai directly.
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="11">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 12 -->
+                        <tr data-time="22:15">
+                            <td class="no-cell" rowspan="3">12</td>
+                            <td class="time-cell" rowspan="3">10:15 PM</td>
+                            <td class="task-cell" rowspan="3">Delay Katha Over & Switch<br>Shayan Darshan</td>
+                            <td class="person-cell" rowspan="3">
+                                <span class="person-tag">Brijeshbhai</span>
+                                <span class="person-tag">Darshanbhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Live TV and Katha TV Delay Katha Over & Switch</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Call Mayur or Jenish. If they don’t answer, call J.K. Bhai directly.
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="12-1">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="22:15">
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube Post Page Swaminarayan Channel
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Shyan Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="12-2">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <tr data-time="22:15">
+                            <td class="platform-cell" data-platform="WhatsApp">
+                                <div class="platform-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                WhatsApp
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Shyan Darshan Photo</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop Message In Int All Dep Group
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="12-3">
+                                </div>
+                            </td>
+                        </tr>
+                        
+                        <!-- Task 13 -->
+                        <tr data-time="19:30">
+                            <td class="no-cell">13</td>
+                            <td class="time-cell">After Sandhya Arti</td>
+                            <td class="task-cell">Mangla Event</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Shyambhai</span>
+                                <span class="person-tag">Jayeshbhai</span>
+                            </td>
+                            <td class="platform-cell" data-platform="YouTube">
+                                <div class="platform-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </div>
+                                YouTube (Swaminarayan Channel)
+                            </td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Event Public or not</li>
+                                </ul>
+                            </td>
+                            <td class="inform-cell">
+                                Drop a message in all internal department groups. But if it is 10:30 PM and the event is still not public, then Call Mayur or Jenish. If neither responds, call J.K. Bhai directly.
+                            </td>
+                            <td class="status-cell">
+                                <div class="checkbox-container">
+                                    <input type="checkbox" class="task-checkbox" data-task="13">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>

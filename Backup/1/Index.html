@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Operations Daily Activity Checklist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header fade-in">
+            <h1>Internet Department Daily Activity Checking Tasks</h1>
+            <p>A simple checklist to keep track of your daily tasks.</p>
+        </div>
+
+        <div class="filters-section">
+            <h2><i class="fas fa-filter"></i> Filter Activities</h2>
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label for="person-filter">Filter by Person</label>
+                    <select id="person-filter" class="filter-select">
+                        <option value="">All Persons</option>
+                        <option value="Brijeshbhai">Brijeshbhai</option>
+                        <option value="Jayeshbhai">Jayeshbhai</option>
+                        <option value="Shyambhai">Shyambhai</option>
+                        <option value="Chetanbhai">Chetanbhai</option>
+                        <option value="Rajubhai">Rajubhai</option>
+                        <option value="Darshanbhai">Darshanbhai</option>
+                        <option value="Darshitbhai">Darshitbhai</option>
+                        <option value="Dharmikbhai">Dharmikbhai</option>
+                        <option value="Jemishbhai">Jemishbhai</option>
+                        <option value="Hemangbhai">Hemangbhai</option>
+                        <option value="Shubhambhai">Shubhambhai</option>
+                        <option value="Kathanbhai">Kathanbhai</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="platform-filter">Filter by Platform</label>
+                    <select id="platform-filter" class="filter-select">
+                        <option value="">All Platforms</option>
+                        <option value="Youtube">YouTube</option>
+                        <option value="Whatsapp">WhatsApp</option>
+                        <option value="Website">Website</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Zoom">Zoom</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="status-filter">Filter by Status</label>
+                    <select id="status-filter" class="filter-select">
+                        <option value="">All Statuses</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Due">Due</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group" style="display: flex; align-items: flex-end;">
+                    <button id="reset-btn" class="reset-btn">
+                        <i class="fas fa-sync-alt"></i> Reset Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-card fade-in">
+                <i class="fas fa-tasks"></i>
+                <h3 id="total-tasks-count">13</h3>
+                <p>Total Tasks</p>
+            </div>
+            
+            <div class="stat-card fade-in due-tasks-kpi">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3 id="due-tasks-count">0</h3>
+                <p>Due Tasks</p>
+            </div>
+            
+            <div class="stat-card fade-in">
+                <i class="fas fa-check-circle"></i>
+                <h3 id="completed-tasks-count">0</h3>
+                <p>Completed Today</p>
+            </div>
+            
+            <div class="stat-card fade-in">
+                <i class="fas fa-clock"></i>
+                <h3 id="pending-tasks-count">0</h3>
+                <p>Pending Tasks</p>
+            </div>
+        </div>
+        
+        <div class="table-container fade-in">
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 40px;">No</th>
+                            <th style="width: 100px;">Time</th>
+                            <th style="width: 200px;">Task</th>
+                            <th style="width: 180px;">Person</th>
+                            <th style="width: 180px;">Platform</th>
+                            <th>What You Need To Check?</th>
+                            <th style="width: 100px;">Gives Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-time="05:50" data-person="Brijeshbhai's wife Jayeshbhai's wife" data-platform="Youtube">
+                            <td class="no-cell">1</td>
+                            <td class="time-cell">05:50:00</td>
+                            <td class="task-cell">Mangala Aarti</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Brijeshbhai's wife</span>
+                                <span class="person-tag">Jayeshbhai's wife</span>
+                            </td>
+                            <td class="platform-cell">Youtube (Swaminarayan Channel)</td>
+                            <td class="check-cell">• Audio Sharu Hovo Joiye</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="05:50" data-person="Brijeshbhai's wife Jayeshbhai's wife" data-platform="Whatsapp">
+                            <td class="no-cell">2</td>
+                            <td class="time-cell">05:50:00</td>
+                            <td class="task-cell">Nirnay</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Brijeshbhai's wife</span>
+                                <span class="person-tag">Jayeshbhai's wife</span>
+                            </td>
+                            <td class="platform-cell">Whatsapp</td>
+                            <td class="check-cell">• Nirnay Image</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="05:50" data-person="Brijeshbhai's wife Jayeshbhai's wife" data-platform="Youtube">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Youtube Post Page</td>
+                            <td class="check-cell">• Nirnay Image</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="05:50" data-person="Brijeshbhai's wife Jayeshbhai's wife" data-platform="Instagram">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Instagram</td>
+                            <td class="check-cell">• Nirnay Image</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="05:50" data-person="Brijeshbhai's wife Jayeshbhai's wife" data-platform="Facebook">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Facebook</td>
+                            <td class="check-cell">• Nirnay Image</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="06:00" data-person="Shyambhai Jayeshbhai" data-platform="Zoom">
+                            <td class="no-cell">3</td>
+                            <td class="time-cell">10 minutes after Mangala</td>
+                            <td class="task-cell">Zoom & Youtube Checking</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Shyambhai</span>
+                                <span class="person-tag">Jayeshbhai</span>
+                            </td>
+                            <td class="platform-cell">Zoom</td>
+                            <td class="check-cell">• Audio-Video quality & mute/unmute permission</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="06:00" data-person="Shyambhai Jayeshbhai" data-platform="Youtube">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Youtube (Swaminarayan Channel)</td>
+                            <td class="check-cell">• Audio-Vide Quality</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="06:45" data-person="Chetanbhai Rajubhai" data-platform="Whatsapp">
+                            <td class="no-cell">4</td>
+                            <td class="time-cell">06:45:00</td>
+                            <td class="task-cell">Magla Darshan</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Chetanbhai</span>
+                                <span class="person-tag">Rajubhai</span>
+                            </td>
+                            <td class="platform-cell">Whatsapp</td>
+                            <td class="check-cell">• Magla Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="06:45" data-person="Chetanbhai Rajubhai" data-platform="Youtube">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Youtube Post (Swaminarayan Channel)</td>
+                            <td class="check-cell">• Magla Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="06:45" data-person="Chetanbhai Rajubhai" data-platform="Website">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Website</td>
+                            <td class="check-cell">• Magla Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="06:45" data-person="Chetanbhai Rajubhai" data-platform="Instagram">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Instagram</td>
+                            <td class="check-cell">• Magla Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="06:45" data-person="Chetanbhai Rajubhai" data-platform="Facebook">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Facebook</td>
+                            <td class="check-cell">• Magla Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="08:15" data-person="Chetanbhai Rajubhai" data-platform="Whatsapp Website">
+                            <td class="no-cell">5</td>
+                            <td class="time-cell">08:15:00</td>
+                            <td class="task-cell">Shangar Darshan</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Chetanbhai</span>
+                                <span class="person-tag">Rajubhai</span>
+                            </td>
+                            <td class="platform-cell">Whatsapp, Website</td>
+                            <td class="check-cell">• Shangar Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="08:15" data-person="Chetanbhai Rajubhai" data-platform="Youtube">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Youtube Post (Swaminarayan Channel)</td>
+                            <td class="check-cell">• Shangar Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="08:15" data-person="Chetanbhai Rajubhai" data-platform="Website">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Website</td>
+                            <td class="check-cell">• Shangar Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="08:15" data-person="Chetanbhai Rajubhai" data-platform="Instagram">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Instagram</td>
+                            <td class="check-cell">• Shangar Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="08:15" data-person="Chetanbhai Rajubhai" data-platform="Facebook">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Facebook</td>
+                            <td class="check-cell">• Shangar Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="11:30" data-person="Shyambhai Jayeshbhai" data-platform="Youtube">
+                            <td class="no-cell">6</td>
+                            <td class="time-cell">15 minutes after Morning Katha</td>
+                            <td class="task-cell">Upcoming Sandhya Aarti Event</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Shyambhai</span>
+                                <span class="person-tag">Jayeshbhai</span>
+                            </td>
+                            <td class="platform-cell">Youtube (Swaminarayan Channel)</td>
+                            <td class="check-cell">• Sandhya Aarti Upcoming Event Check</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="12:30" data-person="Darshanbhai Darshitbhai" data-platform="Youtube">
+                            <td class="no-cell">7</td>
+                            <td class="time-cell">12.30 PM</td>
+                            <td class="task-cell">Tapu maharaj<br>Ghanshyam Maharaj</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Darshanbhai</span>
+                                <span class="person-tag">Darshitbhai</span>
+                            </td>
+                            <td class="platform-cell">Youtube Videos (Swaminarayan Channel)</td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Tapu Maharaj Status</li>
+                                    <li>Tapu Maharaj Clip (Above 1 min)</li>
+                                    <li>Shangar Darshan Ghanshyam Maharaj</li>
+                                    <li>Ghanshyam Maharaj Status</li>
+                                </ul>
+                            </td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="12:30" data-person="Darshanbhai Darshitbhai" data-platform="Youtube">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Youtube Post (Swaminarayan Channel)</td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Tapu Maharaj Photos</li>
+                                    <li>Mangla Darshan Ghanshyam Maharaj</li>
+                                    <li>Shangar Darshan Ghanshyam Maharaj</li>
+                                </ul>
+                            </td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="12:30" data-person="Darshanbhai Darshitbhai" data-platform="Website">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Website</td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>1 Tapu Maharaj Photo</li>
+                                    <li>1 Mangala Darshan</li>
+                                    <li>4 Shangar Darshan</li>
+                                </ul>
+                            </td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="12:30" data-person="Darshanbhai Darshitbhai" data-platform="Instagram">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Instagram</td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Nirnay</li>
+                                    <li>Mangala Darshan</li>
+                                    <li>Shangar Darshan</li>
+                                </ul>
+                            </td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="12:30" data-person="Darshanbhai Darshitbhai" data-platform="Facebook">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Facebook</td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Nirnay</li>
+                                    <li>Shangar Darshan</li>
+                                </ul>
+                            </td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="12:30" data-person="Darshanbhai Darshitbhai" data-platform="Whatsapp">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Whatsapp</td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Nirnay</li>
+                                    <li>Mangala Darshan</li>
+                                    <li>Shangar Darshan</li>
+                                </ul>
+                            </td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="16:00" data-person="Dharmikbhai Jemishbhai" data-platform="Youtube">
+                            <td class="no-cell">8</td>
+                            <td class="time-cell">16:00:00</td>
+                            <td class="task-cell">Sandya Aarti Evnet</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Dharmikbhai</span>
+                                <span class="person-tag">Jemishbhai</span>
+                            </td>
+                            <td class="platform-cell">Youtube (Swaminarayan Channel)</td>
+                            <td class="check-cell">• Sandhya Aarti Event Public or not</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="19:05" data-person="Dharmikbhai Jemishbhai" data-platform="Youtube">
+                            <td class="no-cell">9</td>
+                            <td class="time-cell">19:05:00</td>
+                            <td class="task-cell">Sandhya Aarti Audio Check<br>Katha<br>Katha Saar<br>Katha Audio</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Dharmikbhai</span>
+                                <span class="person-tag">Jemishbhai</span>
+                            </td>
+                            <td class="platform-cell">Youtube</td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Daily Full Katha Video</li>
+                                    <li>Sandhya Aarti Live Event</li>
+                                </ul>
+                            </td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="19:05" data-person="Dharmikbhai Jemishbhai" data-platform="Whatsapp">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Whatsapp</td>
+                            <td class="check-cell">
+                                <ul>
+                                    <li>Full Katha Ni Link</li>
+                                    <li>Audio Katha</li>
+                                    <li>Katha Sar No Photo</li>
+                                </ul>
+                            </td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="19:05" data-person="Dharmikbhai Jemishbhai" data-platform="Website">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Website</td>
+                            <td class="check-cell">• Audio Section Ma Audio Katha</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="20:20" data-person="Hemangbhai Shubhambhai" data-platform="Youtube">
+                            <td class="no-cell">10</td>
+                            <td class="time-cell">20:20:00</td>
+                            <td class="task-cell">Orda chesta</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Hemangbhai</span>
+                                <span class="person-tag">Shubhambhai</span>
+                            </td>
+                            <td class="platform-cell">Youtube</td>
+                            <td class="check-cell">• Live TV and Katha TV Orda Chesta On</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="21:00" data-person="Jayeshbhai Kathanbhai" data-platform="Youtube">
+                            <td class="no-cell">11</td>
+                            <td class="time-cell">21:00:00</td>
+                            <td class="task-cell">Delay Katha</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Jayeshbhai</span>
+                                <span class="person-tag">Kathanbhai</span>
+                            </td>
+                            <td class="platform-cell">Youtube</td>
+                            <td class="check-cell">• Live TV and Katha TV Today Katha On</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="22:15" data-person="Brijeshbhai Darshanbhai" data-platform="Youtube">
+                            <td class="no-cell">12</td>
+                            <td class="time-cell">22:15:00</td>
+                            <td class="task-cell">Delay Katha Over & Switch<br>Shayan Darshan</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Brijeshbhai</span>
+                                <span class="person-tag">Darshanbhai</span>
+                            </td>
+                            <td class="platform-cell">Youtube</td>
+                            <td class="check-cell">• Live TV and Katha TV Delay Katha Over & Switch</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="22:15" data-person="Brijeshbhai Darshanbhai" data-platform="Youtube">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Youtube Post Page Swaminarayan Channel</td>
+                            <td class="check-cell">• Shyan Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="22:15" data-person="Brijeshbhai Darshanbhai" data-platform="Whatsapp">
+                            <td class="no-cell"></td>
+                            <td class="time-cell"></td>
+                            <td class="task-cell"></td>
+                            <td class="person-cell"></td>
+                            <td class="platform-cell">Whatsapp</td>
+                            <td class="check-cell">• Shyan Darshan Photo</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                        <tr data-time="23:30" data-person="Shyambhai Jayeshbhai" data-platform="Youtube">
+                            <td class="no-cell">13</td>
+                            <td class="time-cell">After Sandhya Arti</td>
+                            <td class="task-cell">Mangla Event</td>
+                            <td class="person-cell">
+                                <span class="person-tag">Shyambhai</span>
+                                <span class="person-tag">Jayeshbhai</span>
+                            </td>
+                            <td class="platform-cell">Youtube (Swaminarayan Channel)</td>
+                            <td class="check-cell">• Event Public or not</td>
+                            <td class="status-cell">
+                                <input type="checkbox" class="task-checkbox">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
