@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Activity Tracker</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 20px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .filter-group {
+            position: relative;
+        }
+
+        .filter-select {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            min-width: 200px;
+        }
+
+        .filter-select:hover {
+            background: rgba(255,255,255,1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .table-container {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            backdrop-filter: blur(20px);
+            animation: fadeInUp 1s ease-out 0.7s both;
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .data-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .data-table th:first-child {
+            border-radius: 15px 0 0 0;
+        }
+
+        .data-table th:last-child {
+            border-radius: 0 15px 0 0;
+        }
+
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .data-table tbody tr {
+            opacity: 0;
+            animation: fadeInRow 0.5s ease-out forwards;
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .data-table tbody tr:hover {
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .time-badge {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        .platform-badge {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin: 2px;
+            display: inline-block;
+            animation: shimmer 3s infinite;
+        }
+
+        .task-cell {
+            font-weight: 600;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .person-cell {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .check-cell {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            text-align: left;
+            max-width: 300px;
+        }
+
+        .check-cell ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .check-cell li {
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .check-cell li:before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+        }
+
+        .inform-cell {
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.1), rgba(155, 89, 182, 0.1));
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRow {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200px 0; }
+            100% { background-position: 200px 0; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-select {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .table-container {
+                padding: 15px;
+                border-radius: 15px;
+            }
+
+            .data-table {
+                font-size: 0.9rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 10px 8px;
+            }
+
+            .check-cell {
+                max-width: 200px;
+                font-size: 0.8rem;
+            }
+
+            .time-badge {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+
+            .platform-badge {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .data-table {
+                font-size: 0.8rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 8px 5px;
+            }
+
+            .check-cell {
+                max-width: 150px;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #5a67d8, #6b46c1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header floating">
+            <h1>શ્રી હરિ Daily Activity Tracker</h1>
+            <p>Monitoring and Managing Daily Religious Activities</p>
+        </div>
+
+        <div class="nav-tabs">
+            <div class="tab-btn active" onclick="showTab('all')">
+                <i class="fas fa-list"></i> All Activities
+            </div>
+            <div class="tab-btn" onclick="showTab('filtered')">
+                <i class="fas fa-filter"></i> Filtered View
+            </div>
+        </div>
+
+        <div id="all-tab" class="tab-content">
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Time</th>
+                            <th>Task</th>
+                            <th>Person</th>
+                            <th>Platform</th>
+                            <th>What You Need To Check?</th>
+                            <th>Where You Inform?</th>
+                        </tr>
+                    </thead>
+                    <tbody id="all-data">
+                        <!-- Data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="filtered-tab" class="tab-content" style="display: none;">
+            <div class="filters">
+                <div class="filter-group">
+                    <select class="filter-select" id="person-filter">
+                        <option value="">Select Person</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <select class="filter-select" id="platform-filter">
+                        <option value="">Select Platform</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <button class="tab-btn" onclick="clearFilters()">
+                        <i class="fas fa-times"></i> Clear Filters
+                    </button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Time</th>
+                            <th>Task</th>
+                            <th>Person</th>
+                            <th>Platform</th>
+                            <th>What You Need To Check?</th>
+                            <th>Where You Inform?</th>
+                        </tr>
+                    </thead>
+                    <tbody id="filtered-data">
+                        <!-- Filtered data will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data based on your table
+        const activityData = [
+            {
+                no: 1,
+                time: "5:50 AM",
+                task: "Mangala Aarti",
+                person: "Brijeshbhai's wife, Jayeshbhai's wife",
+                platform: "Youtube (Swaminarayan Channel)",
+                check: "• Audio Sharu Hovo Joiye",
+                inform: "Call Mayur or Jenish. If they don't answer, call J.K. Bhai directly."
+            },
+            {
+                no: 2,
+                time: "5:50 AM",
+                task: "Nirnay",
+                person: "Brijeshbhai's wife, Jayeshbhai's wife",
+                platform: "Whatsapp, Youtube Post Page, Instagram, Facebook",
+                check: "• Nirnay Image",
+                inform: "Drop Message In Int All Dep Group"
+            },
+            {
+                no: 3,
+                time: "10 minutes after Mangala",
+                task: "Zoom & Youtube Checking",
+                person: "Shyambhai, Jayeshbhai",
+                platform: "Zoom, Youtube (Swaminarayan Channel)",
+                check: "• Audio-Video quality & mute/unmute permission\n• Audio-Video Quality",
+                inform: "Call Mayur or Jenish. If they don't answer, call J.K. Bhai directly."
+            },
+            {
+                no: 4,
+                time: "6:45 AM",
+                task: "Magla Darshan",
+                person: "Chetanbhai, Rajubhai",
+                platform: "Whatsapp, Youtube Post (Swaminarayan Channel), Website, Instagram, Facebook",
+                check: "• Magla Darshan Photo",
+                inform: "Drop Message In Int All Dep Group"
+            },
+            {
+                no: 5,
+                time: "8:15 AM",
+                task: "Shangar Darshan",
+                person: "Chetanbhai, Rajubhai",
+                platform: "Whatsapp, Website, Youtube Post (Swaminarayan Channel), Instagram, Facebook",
+                check: "• Shangar Darshan Photo",
+                inform: "Drop Message In Int All Dep Group"
+            },
+            {
+                no: 6,
+                time: "15 minutes after Morning Katha",
+                task: "Upcoming Sandhya Aarti Event",
+                person: "Shyambhai, Jayeshbhai",
+                platform: "Youtube (Swaminarayan Channel)",
+                check: "• Sandhya Aarti Upcoming Event Check",
+                inform: "Drop Message In Int All Dep Group"
+            },
+            {
+                no: 7,
+                time: "12:30 PM",
+                task: "Tapu maharaj Ghanshyam Maharaj",
+                person: "Darshanbhai, Darshitbhai",
+                platform: "Youtube Videos (Swaminarayan Channel), Youtube Post, Website, Instagram, Facebook, Whatsapp",
+                check: "• Tapu Maharaj Status\n• Tapu Maharaj Clip (Above 1 min)\n• Shangar Darshan Ghanshyam Maharaj\n• Ghanshyam Maharaj Status\n• Tapu Maharaj Photos\n• Mangla Darshan Ghanshyam Maharaj\n• 1 Tapu Maharaj Photo\n• 1 Mangala Darshan\n• 4 Shangar Darshan\n• Nirnay\n• Mangala Darshan\n• Shangar Darshan",
+                inform: "Drop Message In Int All Dep Group"
+            },
+            {
+                no: 8,
+                time: "4:00 PM",
+                task: "Sandya Aarti Event",
+                person: "Dharmikbhai, Jemishbhai",
+                platform: "Youtube (Swaminarayan Channel)",
+                check: "• Sandhya Aarti Event Public or not",
+                inform: "Drop Message In Int All Dep Group"
+            },
+            {
+                no: 9,
+                time: "7:05 PM",
+                task: "Sandhya Aarti Audio Check, Katha, Katha Saar, Katha Audio",
+                person: "Dharmikbhai, Jemishbhai",
+                platform: "Youtube, Whatsapp, Website",
+                check: "• Daily Full Katha Video\n• Sandhya Aarti Live Event\n• Full Katha Ni Link\n• Audio Katha\n• Katha Sar No Photo\n• Audio Section Ma Audio Katha",
+                inform: "If Aarti Related Problem then Call Directly To J.K.Bhai Otherwise Drop Message In Int All Dep Group"
+            },
+            {
+                no: 10,
+                time: "8:20 PM",
+                task: "Orda chesta",
+                person: "Hemangbhai, Shubhambhai",
+                platform: "Youtube",
+                check: "• Live TV and Katha TV Orda Chesta On",
+                inform: "Call Mayur or Jenish. If they don't answer, call J.K. Bhai directly."
+            },
+            {
+                no: 11,
+                time: "9:00 PM",
+                task: "Delay Katha",
+                person: "Jayeshbhai, Kathanbhai",
+                platform: "Youtube",
+                check: "• Live TV and Katha TV Today Katha On",
+                inform: "Call Mayur or Jenish. If they don't answer, call J.K. Bhai directly."
+            },
+            {
+                no: 12,
+                time: "10:15 PM",
+                task: "Delay Katha Over & Switch, Shayan Darshan",
+                person: "Brijeshbhai, Darshanbhai",
+                platform: "Youtube, Youtube Post Page Swaminarayan Channel, Whatsapp",
+                check: "• Live TV and Katha TV Delay Katha Over & Switch\n• Shyan Darshan Photo",
+                inform: "Call Mayur or Jenish. If they don't answer, call J.K. Bhai directly. Drop Message In Int All Dep Group"
+            },
+            {
+                no: 13,
+                time: "After Sandhya Arti",
+                task: "Mangla Event",
+                person: "Shyambhai, Jayeshbhai",
+                platform: "Youtube (Swaminarayan Channel)",
+                check: "• Event Public or not",
+                inform: "Drop a message in all internal department groups. But if it is 10:30 PM and the event is still not public, then Call Mayur or Jenish. If neither responds, call J.K. Bhai directly."
+            }
+        ];
+
+        let currentData = activityData;
+
+        function populateTable(data, tableBodyId) {
+            const tbody = document.getElementById(tableBodyId);
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="empty-state">
+                            <i class="fas fa-search"></i>
+                            <div>No activities found matching your criteria</div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            data.forEach((item, index) => {
+                const row = document.createElement('tr');
+                row.style.animationDelay = `${index * 0.1}s`;
+                
+                const platforms = item.platform.split(', ').map(p => 
+                    `<span class="platform-badge">${p}</span>`
+                ).join(' ');
+
+                const checkItems = item.check.split('\n').map(c => 
+                    `<li>${c.replace('• ', '')}</li>`
+                ).join('');
+
+                row.innerHTML = `
+                    <td>${item.no}</td>
+                    <td><span class="time-badge">${item.time}</span></td>
+                    <td class="task-cell">${item.task}</td>
+                    <td class="person-cell">${item.person}</td>
+                    <td>${platforms}</td>
+                    <td class="check-cell"><ul>${checkItems}</ul></td>
+                    <td class="inform-cell">${item.inform}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function populateFilters() {
+            const personFilter = document.getElementById('person-filter');
+            const platformFilter = document.getElementById('platform-filter');
+
+            // Get unique persons
+            const persons = [...new Set(activityData.flatMap(item => 
+                item.person.split(', ')
+            ))].sort();
+
+            // Get unique platforms
+            const platforms = [...new Set(activityData.flatMap(item => 
+                item.platform.split(', ')
+            ))].sort();
+
+            persons.forEach(person => {
+                const option = document.createElement('option');
+                option.value = person;
+                option.textContent = person;
+                personFilter.appendChild(option);
+            });
+
+            platforms.forEach(platform => {
+                const option = document.createElement('option');
+                option.value = platform;
+                option.textContent = platform;
+                platformFilter.appendChild(option);
+            });
+        }
+
+        function filterData() {
+            const personFilter = document.getElementById('person-filter').value;
+            const platformFilter = document.getElementById('platform-filter').value;
+
+            let filteredData = activityData;
+
+            if (personFilter) {
+                filteredData = filteredData.filter(item => 
+                    item.person.includes(personFilter)
+                );
+            }
+
+            if (platformFilter) {
+                filteredData = filteredData.filter(item => 
+                    item.platform.includes(platformFilter)
+                );
+            }
+
+            populateTable(filteredData, 'filtered-data');
+        }
+
+        function clearFilters() {
+            document.getElementById('person-filter').value = '';
+            document.getElementById('platform-filter').value = '';
+            populateTable(activityData, 'filtered-data');
+        }
+
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            tabs.forEach(tab => tab.style.display = 'none');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabName + '-tab').style.display = 'block';
+            event.target.classList.add('active');
+
+            if (tabName === 'all') {
+                populateTable(activityData, 'all-data');
+            } else {
+                populateTable(currentData, 'filtered-data');
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            populateTable(activityData, 'all-data');
+            populateFilters();
+
+            // Add event listeners for filters
+            document.getElementById('person-filter').addEventListener('change', filterData);
+            document.getElementById('platform-filter').addEventListener('change', filterData);
+
+            // Add some interactive effects
+            document.querySelectorAll('.data-table tbody tr').forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                });
+                row.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
